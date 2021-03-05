@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function taxcalculator(percentagr){     //create method which access parameter called percentage
+            return function (amount){           //return another function which access the parameter called amount
+                return (amount * percentagr);   //calculate and retrun the value
+            }
+        }
+
+        var calculator = taxcalculator(.12);    //calling the taxcalculator by passing 0.12
+        console.log(calculator(200));           //calling the function with 200 & print in the console
+    </script>
+</body>
+</html>

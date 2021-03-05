@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //(a)
+       var vehicleName = "Toyota";
+
+       function printVehicleName(){
+           console.log(this.vehicleName);
+       }
+
+       //(b)
+       // var car = {
+       //     vehicleName: "Nissan",
+       //     printName: printVehicleName      //vehicle name pointing to another function
+       //     /**
+       //      * printName become a function
+       //      */
+       // }
+
+        var car = {
+            vehicleName:"Nissan",
+            printName: function (){
+                return function (){
+                    console.log(this.vehicleName);
+                };
+            }
+        }
+        printVehicleName();
+
+       var execute = car.printName();
+       execute = execute().bind(car);
+       execute();
+
+
+
+
+
+    </script>
+</body>
+</html>
