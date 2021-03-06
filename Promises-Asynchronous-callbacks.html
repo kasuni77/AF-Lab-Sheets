@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        let promise = new Promise(function (resolve, reject){
+           resolve()
+           reject();
+        }) ;
+
+        // function getValue(callback){
+        //     let value = 0;
+        //     setTimeout(function (){ //function that globally available
+        //         value = 10;
+        //         //this is the anonymous function defined in line number 28
+        //         callback(value);
+        //     }, 1000);               //pass the milli second value
+        //     return value;
+        // }
+
+        function getValue(){
+            let value = 0;
+            //resolve is fro success
+            //reject is for errors
+            return new Promise(function (resolve, reject){
+                setTimeout(function (){
+                    value= 10;
+                    resolve(value);
+                }, 1000);
+            })
+        }
+
+        function getNewValue(value, callback){
+            setTimeout(function (){
+                //this is the anonymous function defined in line number 30
+                callback(value * 100);
+            }, 1000);
+        }
+
+        // //calling the function defined at line number 11
+        // getValue(function (value){
+        //     //calling the function defined at line number 20
+        //     getNewValue(value, function (newValue){     //excute in line number 23
+        //       console.log(newValue);
+        //     })
+        // });
+
+        // getValue(function (value){  //call the function
+        //     console.log(value);
+        // });
+
+        getValue().then(function (value){
+           console.log(value);
+        });
+
+
+    </script>
+
+</body>
+</html>
